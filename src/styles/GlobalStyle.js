@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
     body{
-        font-family: "Nunito Sans", sans-serif;
+        background-color:${(props) => props.theme.colors.black};
+        font-family:${(props) => ` ${props.theme.fonts.nunito}, sans-serif`};
+        color: ${(props) => props.theme.colors.greyText}
     }
 `;
 

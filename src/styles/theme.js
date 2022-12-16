@@ -3,7 +3,6 @@ export const theme = {
     black: "#110F12",
     greyText: "#9A9A9B",
     primaryCyan: "#00DAA7",
-    white: "#F5FAFA",
   },
   fonts: {
     nunito: "Nunito Sans",

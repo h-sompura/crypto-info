@@ -1,13 +1,26 @@
 import React from "react";
+import Icon from "@mui/material/Icon";
 import { DataGrid } from "@mui/x-data-grid";
 import Container from "./Container";
 
 const columns = [
   {
-    field: "id",
-    headerName: "ID",
-    width: 40,
+    field: "icon",
+    headerName: "",
+    width: 100,
     headerClassName: "table--header",
+    renderCell: (params) => (
+      <Icon
+        style={{
+          height: "2.5em",
+          width: "2.5em",
+          textAlign: "center",
+          margin: ".8em 0",
+        }}
+      >
+        <img style={{ height: 50, width: 50 }} alt="" src={params.value} />
+      </Icon>
+    ),
   },
   {
     field: "name",
@@ -20,6 +33,7 @@ const columns = [
     headerName: "Price",
     width: 250,
     headerClassName: "table--header",
+    renderCell: (params) => <p>${params.value}</p>,
   },
   {
     field: "twentyFourh",
@@ -27,16 +41,13 @@ const columns = [
     type: "number",
     width: 100,
     headerClassName: "table--header",
+    renderCell: (params) => <p>{params.value}%</p>,
   },
   {
     field: "marketCap",
     headerName: "Market Cap",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
     width: 200,
     headerClassName: "table--header",
-    //     valueGetter: (params) =>
-    //       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
 ];
 

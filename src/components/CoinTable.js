@@ -79,7 +79,6 @@ const CoinTable = () => {
       if (responseFromAPI.ok) {
         setLoading(false);
         const jsonData = await responseFromAPI.json();
-        console.log(`Data received from API: ${jsonData.data}`);
         resultsList.push(jsonData.data.coins);
       }
     } catch (err) {
@@ -94,7 +93,6 @@ const CoinTable = () => {
       name: result.name,
       icon: result.iconUrl,
     }));
-    console.log(coinsData);
 
     setTableData(coinsData);
   };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Icon from "@mui/material/Icon";
+// import Icon from "@mui/material/Icon";
 import { DataGrid } from "@mui/x-data-grid";
 import Container from "./Container";
 
@@ -57,7 +57,7 @@ const CoinTable = () => {
   const [tableData, setTableData] = useState([]);
 
   const apiURL = process.env.REACT_APP_API_URL;
-  const proxyURL = process.env.REACT_APP_PROXY_URL;
+  // const proxyURL = process.env.REACT_APP_PROXY_URL;
 
   // UseEffect Hook
   useEffect(() => {

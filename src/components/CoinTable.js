@@ -4,24 +4,24 @@ import { DataGrid } from "@mui/x-data-grid";
 import Container from "./Container";
 
 const columns = [
-  {
-    field: "icon",
-    headerName: "",
-    width: 100,
-    headerClassName: "table--header",
-    renderCell: (params) => (
-      <Icon
-        style={{
-          height: "2.5em",
-          width: "2.5em",
-          textAlign: "center",
-          margin: ".8em 0",
-        }}
-      >
-        <img style={{ height: 50, width: 50 }} alt="" src={params.value} />
-      </Icon>
-    ),
-  },
+  // {
+  //   field: "icon",
+  //   headerName: "",
+  //   width: 100,
+  //   headerClassName: "table--header",
+  //   renderCell: (params) => (
+  //     <Icon
+  //       style={{
+  //         height: "2.5em",
+  //         width: "2.5em",
+  //         textAlign: "center",
+  //         margin: ".8em 0",
+  //       }}
+  //     >
+  //       <img style={{ height: 50, width: 50 }} alt="" src={params.value} />
+  //     </Icon>
+  //   ),
+  // },
   {
     field: "name",
     headerName: "Name",
@@ -68,32 +68,28 @@ const CoinTable = () => {
   const fetchCoinData = async () => {
     const resultsList = [];
     try {
-      const responseFromAPI = await fetch(`${proxyURL}${apiURL}`, {
+      const responseFromAPI = await fetch(`${apiURL}`, {
         method: "GET",
-        headers: {
-          "Content-type": "application-json",
-          "x-access-token": process.env.REACT_APP_CRYPTO_API_KEY,
-          "Access-Control-Allow-Origin": "*",
-        },
       });
       if (responseFromAPI.ok) {
         setLoading(false);
         const jsonData = await responseFromAPI.json();
-        resultsList.push(jsonData.data.coins);
+        // console.log(jsonData)
+        resultsList.push(jsonData.data);
       }
     } catch (err) {
       setLoading(true);
       console.log(`Error while fetching data from the API: ${err}`);
     }
     const coinsData = resultsList[0].map((result) => ({
-      id: result.uuid,
-      price: result.price,
-      twentyFourh: result.change,
-      marketCap: result.marketCap,
+      id: result.id,
+      price: result["price_usd"],
+      twentyFourh: result["percent_change_24h"],
+      marketCap: result["market_cap_usd"],
       name: result.name,
-      icon: result.iconUrl,
+      // icon: result.iconUrl,
     }));
-
+    console.log(coinsData);
     setTableData(coinsData);
   };
 

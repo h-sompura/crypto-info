@@ -1,6 +1,10 @@
 # 🎈 Crypto Coin Info
 
-Use a Crypto API to display coin information based on Price, Market Cap, 24h and graphs.
+Uses [CoinRanking API](https://developers.coinranking.com/api) to display coin information based on Price, Market Cap, 24h and graphs.
+<br>
+
+### 🔗 View it live here - [https://crypto-info-hs.vercel.app/](https://crypto-info-hs.vercel.app/)
+
 <br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

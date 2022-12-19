@@ -70,6 +70,7 @@ const CoinTable = () => {
     try {
       const responseFromAPI = await fetch(`${apiURL}`, {
         method: "GET",
+        },
       });
       if (responseFromAPI.ok) {
         setLoading(false);

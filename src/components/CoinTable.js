@@ -68,9 +68,13 @@ const CoinTable = () => {
   const fetchCoinData = async () => {
     const resultsList = [];
     try {
-      const responseFromAPI = await fetch(`${proxyURL}${apiURL}`, {
+      const queryString = new URLSearchParams({
+        'x-access-token':  process.env.REACT_APP_CRYPTO_API_KEY,
+      });      
+      const responseFromAPI = await fetch(`${apiURL}?${queryString}`, {
         method: "GET",
         headers: {
+          "mode":"no-cors",
           "Content-type": "application-json",
           "x-access-token": process.env.REACT_APP_CRYPTO_API_KEY,
           "Access-Control-Allow-Origin": "*",

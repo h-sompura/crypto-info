@@ -7,6 +7,10 @@ Uses [CoinRanking API](https://developers.coinranking.com/api) to display coin i
 
 <br>
 
+![](src/assets/demo.gif)
+
+<br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## ⚒️ Tech Stack
